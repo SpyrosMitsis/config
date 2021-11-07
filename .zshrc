@@ -74,3 +74,4 @@ alias ls=' ls --color=always'
 alias vi='nvim'
 export EDITOR=nvim
 
+bindkey -s '^w' 'curl wttr.in\n'
