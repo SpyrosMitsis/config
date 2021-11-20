@@ -18,8 +18,8 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #4f7d66
-background-alt = #619a7e
+background = #1d4076
+background-alt = #442948
 ;foreground = ${xrdb:color7:#222}
 foreground = #000
 foreground-alt = #555
@@ -57,16 +57,16 @@ font-2 = fontAwesome5Free:style=Solid:pixelsize=10;antialias=false;3
 font-3 = fontAwesome5Brands:style=Solid:pixelsize=10;antialias=false;3
 font-4 = siji:pixelsize=10;0
 
-modules-left = i3 system-usb-udev 
-modules-center = mpd spotify spotify-play-pause spotify-prev
+modules-left = bspwm system-usb-udev 
+modules-center = mpd spotify spotify-play-pause 
 modules-right = timer pulseaudio-control better_battery temperature date  powermenu
 
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
 
-;wm-restack = bspwm
-wm-restack = i3
+wm-restack = bspwm
+;wm-restack = i3
 
 ;override-redirect = true
 
@@ -136,21 +136,44 @@ label-unmounted-foreground = ${colors.foreground-alt}
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %index%
+label-focused = %icon%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
-label-occupied = %index%
+label-occupied = %index% : %icon%
 label-occupied-padding = 2
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
+label-empty = 
+label-empty-foreground = ${colors.foreground}
 label-empty-padding = 2
+
+format = <label-state> <label-mode>
+
+
+; Browser
+ws-icon-0 = 1;
+; Terminals
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+;Video caller
+ws-icon-5 = 6;
+; LaTex
+ws-icon-6 = 7;
+;term
+ws-icon-7 = 8;
+;vpn
+ws-icon-8 = 9;
+;Spotify
+ws-icon-9 = 10;
+; default
+ws-icon-default = 
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -213,6 +236,7 @@ label-urgent-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
+
     
 [module/vpn]
 type = custom/script
